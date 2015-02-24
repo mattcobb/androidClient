@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="net.inbetween.webview"
+      android:versionCode="72"
+      android:versionName="1.072 release">
+
+    <permission android:name="net.inbetween.permission.SEND_SERVICE_BROADCAST_EVENTS" android:protectionLevel="signature"></permission>
+    
+    <uses-sdk android:minSdkVersion="8" />
+    
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CALL_PRIVILEGED"></uses-permission>
+    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+    <uses-permission android:name="android.permission.GET_TASKS"></uses-permission>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
+    
+    <uses-permission android:name="net.inbetween.permission.SEND_SERVICE_BROADCAST_EVENTS"></uses-permission>
+        
+    <application android:icon="@drawable/icon" android:label="@string/app_name">
+        <activity android:name=".IbWebview"
+                  android:label="@string/app_name"
+                  android:screenOrientation="portrait"
+                  android:launchMode="singleInstance"
+                 >
+                  
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="net.inbetween.webview.START_IN_BACKGROUND"/>
+                <action android:name="net.inbetween.webview.START_IN_NEWS"/>
+            </intent-filter>
+            <intent-filter>
+               <action android:name="android.intent.action.SEND"/>
+               <category android:name="android.intent.category.DEFAULT" />
+               <data android:mimeType="text/plain"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="net.inbetween.TransparentActivity.TransparentActivityDialog"
+              android:theme="@style/Theme.Transparent"
+              android:taskAffinity=".XWishDialog"
+              android:noHistory="true">
+        </activity>
+
+        <service
+            android:enabled="true"
+            android:exported="false"
+            android:name="net.inbetween.services.WishRunner"
+            android:taskAffinity="XWishService">
+            <intent-filter>
+                <action android:name="net.inbetween.services.WishRunner" />
+            </intent-filter>
+        </service>   
+        
+       <receiver android:name="net.inbetween.receivers.BootCompletedReceiver" android:exported="false">
+         <intent-filter>
+            <action android:name="android.intent.action.BOOT_COMPLETED"> </action>
+            <category android:name="android.intent.category.HOME"> </category>
+         </intent-filter>
+       </receiver>
+    </application>
+</manifest>

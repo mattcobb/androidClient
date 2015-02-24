@@ -1,0 +1,3 @@
+proguard mapping.txt.<VERSION> files are copied here when webview/tools/generateapk.sh calls ant.
+These files are not checked in, they are in the .gitignore file.
+*** ONLY THE BUILD MASTER SHOULD CHECK THE PRODUCTION COPY OF THESE FILES IN ***

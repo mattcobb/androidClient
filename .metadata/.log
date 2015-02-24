@@ -1,0 +1,42 @@
+!SESSION 2012-05-19 21:55:08.931 -----------------------------------------------
+eclipse.buildId=M20110909-1335
+java.version=1.6.0_26
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_AU
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2012-05-19 21:56:59.618
+!MESSAGE Invalid preference page path: XML Syntax
+!SESSION 2012-05-19 21:57:01.692 -----------------------------------------------
+eclipse.buildId=M20110909-1335
+java.version=1.6.0_26
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_AU
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-05-19 22:02:02.259
+!MESSAGE Failed to load properties file for project 'ibAndroidClient'
+
+!ENTRY org.eclipse.ui 4 4 2012-05-19 22:02:34.573
+!MESSAGE Invalid preference page path: XML Syntax
+!SESSION 2012-05-19 22:02:51.529 -----------------------------------------------
+eclipse.buildId=M20110909-1335
+java.version=1.6.0_26
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_AU
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-05-19 22:02:57.290
+!MESSAGE projectOpenedWithWorkspace: failed to find manifest package for project ibAndroidClient
+
+!ENTRY org.eclipse.ui 4 4 2012-05-19 22:03:09.527
+!MESSAGE Invalid preference page path: XML Syntax
+!SESSION 2012-07-10 15:25:05.646 -----------------------------------------------
+eclipse.buildId=M20110909-1335
+java.version=1.6.0_26
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_AU
+Command-line arguments:  -data /home/matt/src/ib/client -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2012-07-10 15:26:26.665
+!MESSAGE Invalid preference page path: XML Syntax

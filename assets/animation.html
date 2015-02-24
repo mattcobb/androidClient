@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>animate</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+      <link href="login.css" rel="stylesheet" type="text/css"/>
+     <script type="text/javascript">
+     
+     // params: ctx.func ctx.delay ctx.dataQ ctx.loop
+     
+         var imgPlayer = function(ctx){
+            var queue = ctx.dataQ;   
+            var func = ctx.func;
+            var loop = ctx.loop;
+	
+            var doWork = function(){
+            
+               var delay;
+               
+               
+               if (queue.length == 0){
+                     return;
+               }
+               var workItem = queue.shift();
+               func(workItem);
+               
+               if (loop) queue.push(workItem);
+        
+               if (workItem.delay){
+                  delay = workItem.delay;
+               }else{
+                  delay = ctx.delay;
+               }
+               
+               setTimeout(doWork, delay, null);
+            }
+               
+            this.startWork = function(){
+               setTimeout(doWork, ctx.delay, null);
+            }
+         }
+         
+         function renderImg(args){
+            document.getElementById(args.id).src = args.name;
+         }
+        
+        function doAnimation(prefix, count,   interval, prefix2, count2, id, loop){
+           var dataQ = [];
+          
+           for (var i=0; i< count; i++){
+              dataQ.push({ name: (prefix + i + '.png'), id: id});
+           }
+           
+           dataQ.push({ name: (prefix2 + '0.png'), id: id, delay: 300});
+           
+           for (var j = 0; j < 150; j ++){
+	           for (var i=1; i< count2; i++){ //Goes from 1 because 'Genie_LongEnd/longGenie0.png' has no dots
+	              dataQ.push({ name: (prefix2 + i + '.png'), id: id, delay: 300});
+	           }
+           }
+    
+    
+           var player = new imgPlayer({delay:interval, func: renderImg, dataQ: dataQ, loop:loop });
+           player.startWork();
+          
+        }
+        
+        function initAnimation(){
+           doAnimation("Genie_Start/Genie", 16,  100,  "Genie_LongEnd/longGenie", 6 , "update", false);
+               
+           
+        }
+        
+        function exitXwishWebview() {
+            if (window.ob) {
+                window.ob.nukeState();
+                window.ob.finish(); // call JAVA exit webview
+            }
+        }
+       
+      </script>
+     
+</head>
+
+<body id="animate" onload="initAnimation()">
+    <div id="headerBox" class="genie" ><img src="Genie_Start/Genie0.png" id="update" /></div>
+</body>
+</html>
